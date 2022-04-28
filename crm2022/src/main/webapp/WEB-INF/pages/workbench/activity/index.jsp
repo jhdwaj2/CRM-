@@ -21,9 +21,8 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 
 	$(function(){
 		$("#createActivityBtn").click(function () {
-
-
-
+			//重置表单
+			$("#createActivityForm").get(0).reset();
 			$("#createActivityModal").modal("show");
 		});
 		$("#saveCreateActivityBtn").click(function () {
@@ -94,7 +93,7 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 				</div>
 				<div class="modal-body">
 				
-					<form class="form-horizontal" role="form">
+					<form id="createActivityForm" class="form-horizontal" role="form">
 					
 						<div class="form-group">
 							<label for="create-marketActivityOwner" class="col-sm-2 control-label">所有者<span style="font-size: 15px; color: red;">*</span></label>
