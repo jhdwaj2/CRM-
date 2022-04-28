@@ -116,7 +116,7 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 					htmlStr+="<td>"+obj.endDate+"</td>";
 					htmlStr+="</tr>";
 				});
-				$("#tBody").text(htmlStr);
+				$("#tBody").html(htmlStr);
 			}
 		});
 	});
@@ -382,7 +382,7 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 			
 			<div style="height: 50px; position: relative;top: 30px;">
 				<div>
-					<button type="button" class="btn btn-default" style="cursor: default;">共<b>50</b>条记录</button>
+					<button type="button" class="btn btn-default" style="cursor: default;">共<b id="totalRowsB">50</b>条记录</button>
 				</div>
 				<div class="btn-group" style="position: relative;top: -34px; left: 110px;">
 					<button type="button" class="btn btn-default" style="cursor: default;">显示</button>
