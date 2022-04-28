@@ -75,6 +75,18 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 				}
 			});
 		});
+
+		$(".mydate").datetimepicker({
+			language:'zh-CN', //设置简体中文
+			format:'yyyy-mm-dd',
+			minView:'month',
+			initialDate:new Date(),
+			autoclose:true,
+			todayBtn:true,
+			clearBtn:true
+		})
+
+
 	});
 	
 </script>
@@ -113,11 +125,11 @@ String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.ge
 						<div class="form-group">
 							<label for="create-startDate" class="col-sm-2 control-label">开始日期</label>
 							<div class="col-sm-10" style="width: 300px;">
-								<input type="text" class="form-control" id="create-startDate">
+								<input type="text" class="form-control mydate" id="create-startDate" readonly="readonly">
 							</div>
 							<label for="create-endDate" class="col-sm-2 control-label">结束日期</label>
 							<div class="col-sm-10" style="width: 300px;">
-								<input type="text" class="form-control" id="create-endDate">
+								<input type="text" class="form-control mydate" id="create-endDate" readonly="readonly">
 							</div>
 						</div>
                         <div class="form-group">
