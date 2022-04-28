@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Date: 2022/4/26
@@ -68,6 +70,24 @@ public class ActivityController {
 
         }
         return returnObject;
+    }
+
+    @RequestMapping("/workbench/activity/queryActivityByConditionForPage.do")
+    public @ResponseBody Object queryActivityByConditionForPage(String name,String owner,String startDate,String endDate,Integer pageNo,Integer pageSize){
+        Map<String,Object> map=new HashMap<>();
+        map.put("name",name);
+        map.put("owner",owner);
+        map.put("startDate",startDate);
+        map.put("endDate",endDate);
+        map.put("beginNo",(pageNo-1)*pageSize);
+        map.put("pageSize",pageSize);
+
+        List<Activity> activityList = activityService.queryActivityByConditionForPage(map);
+        Integer totalRows = activityService.queryCountOfActivityByCondition(map);
+        Map<String,Object> retMap=new HashMap<>();
+        retMap.put("activityList",activityList);
+        retMap.put("totalRows",totalRows);
+        return retMap;
     }
 
 }
